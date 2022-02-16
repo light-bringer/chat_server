@@ -1,0 +1,36 @@
+CHAT APP
+
+type : scalable + 1:1
+something like messenger
+working prototype
+1. Api based
+2. Chatroom messages can be retrievable (history)
+no limits
+3. simple user (can hardcode user, authentication mechanisms)
+4. No messsage read/online status
+5. User logs in and gets all messages in one go
+7. messages are not deleted
+
+
+sendMessage(sender, receivers, message) /send POST Header: user_id Body: {group_id, message_body:}
+getAllRecievers(user) -> /groups  GET Header: user_id -> [receivers]
+getMessages(sender, reciever) -> /conversation?group_id=[group_id] Header: user_id -> [Messages(ordered by timestamp)]
+
+has to be a REST API
+
+data store : in memory
+
+
+User
+    user_name
+    password
+
+Message:
+    id
+    sender : User
+    reciever: User
+    timestamp: datetime
+    message_body: string
+
+message_sender
+message_reciever
